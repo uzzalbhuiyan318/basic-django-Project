@@ -66,7 +66,12 @@
   </head>
   <body>
     <div class="signup-container">
-      <form class="signup-form" action="#" method="POST">
+      <form
+        class="signup-form"
+        action="#"
+        method="POST"
+        enctype="multipart/form-data"
+      >
         {% csrf_token %}
 
         <h2>Create an Account</h2>
@@ -108,6 +113,9 @@
 
         <label for="contact_no">Contact Number</label>
         <input type="text" id="contact_no" name="contact_no" required />
+
+        <label for="profile_pic">Profile Pic</label>
+        <input type="file" id="profile_pic" name="profile_pic" required />
 
         <button type="submit">Sign Up</button>
         <a href="{% url 'signinPage' %}">SignIn</a>

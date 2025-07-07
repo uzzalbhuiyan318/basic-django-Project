@@ -17,6 +17,7 @@ class customeUser(AbstractUser):
     gender = models.CharField(choices=GENDER,  max_length=20, null=True)
     age = models.PositiveIntegerField(null=True)
     contact_no = models.CharField(max_length=100, null=True)
+    profile_pic = models.ImageField(upload_to='Media/profile_pic', null=True)
     
     
     def __str__(self):

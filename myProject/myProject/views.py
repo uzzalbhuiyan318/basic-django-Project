@@ -15,6 +15,7 @@ def signupPage(request):
         gender = request.POST.get("gender")
         age = request.POST.get("age")
         contact_no = request.POST.get("contact_no")
+        profile_pic = request.FILES.get("profile_pic")
         
         
         if password == confirm_password:
@@ -26,7 +27,8 @@ def signupPage(request):
                 user_type= user_type,
                 gender = gender,
                 age = age,
-                contact_no = contact_no
+                contact_no = contact_no,
+                profile_pic = profile_pic,
             )
             return redirect("signinPage")
     
@@ -69,3 +71,9 @@ def logoutPage(request):
     logout(request)
     
     return render(request, "signinPage.html")
+
+def profilePage(request):
+    
+    
+    
+    return render(request, "profilePage.html")

@@ -1,0 +1,86 @@
+{% extends 'base.html' %} {% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css" />
+    <style>
+      .profile-card {
+        background: white;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        width: 380px;
+        text-align: center;
+      }
+
+      .profile-card h2 {
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .profile-card p {
+        margin: 5px 0;
+        color: #555;
+      }
+
+      .profile-card .info-label {
+        font-weight: bold;
+        color: #111;
+      }
+
+      .profile_pic {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #ddd;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+      .btn-edit {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .btn-edit:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-card">
+      <div class="profile_pic">
+        <img
+          src="/{{ request.user.profile_pic}}"
+          class="profile_pic"
+          alt="Profile Picture"
+        />
+      </div>
+      <h2>{{ user.username }}</h2>
+      <p>
+        <span class="info-label">Username:</span> {{ request.user.username }}
+      </p>
+      <p><span class="info-label">Email:</span> {{ request.user.email }}</p>
+      <p>
+        <span class="info-label">User Type:</span> {{ request.user.user_type }}
+      </p>
+      <p><span class="info-label">Gender:</span> {{ request.user.gender }}</p>
+      <p><span class="info-label">Age:</span> {{ request.user.age }}</p>
+      <p>
+        <span class="info-label">Contact:</span> {{ request.user.contact_no }}
+      </p>
+      <button class="btn-edit">Edit Profile</button>
+    </div>
+  </body>
+</html>
+
+{% endblock body %}
