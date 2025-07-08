@@ -30,6 +30,13 @@ def signupPage(request):
                 contact_no = contact_no,
                 profile_pic = profile_pic,
             )
+            
+            if user_type == 'viewers':
+                viewersProfileModel.objects.create(user = user)
+            
+            elif user_type == 'bloger':
+                blogerProfileModel.objects.create(user = user)
+                
             return redirect("signinPage")
     
     
